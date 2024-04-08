@@ -1,14 +1,17 @@
-# Project
+# Azure ML Deep Learning Examples
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+The internet is full of tutorials that typically fail at building a complete view of a  training operation, specially with regards to operationalization of components, and usage of real, non-fictional data. This repo includes examples for:
 
-As the maintainer of this project, please make a few updates:
+- Building a custom Docker environment and compute cluster to support finetuning on A100 and using a training library (in this case, Axolotl)
+- Fine tuning a model stored ono HuggingFace, and saving the finetuned model in the Model repository
+- Creating a PromptFlow eval, and evaluate the model against public benchmarks
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+When added to a pipeline, it will be possible for customers to use the above to experiment with different configurations / models / datasets, to determine which of the many models is the best performing on their datasets.
+
+## How to run these notebooks and scripts
+
+These notebooks and scripts will modify your Azure ML environment. Therefore, we assume you have already created an Azure ML workspace, and are familiar with the different methods to modify your Azure ML environment, such as the SDK or the CLI.
+
 
 ## Contributing
 
