@@ -5,3 +5,5 @@ WORKDIR axolotl
 
 RUN pip3 install packaging ninja
 RUN pip3 install -e '.[flash-attn,deepspeed]'
+
+RUN pip3 install azureml-mlflow
