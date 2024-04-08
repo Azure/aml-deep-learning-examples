@@ -19,7 +19,7 @@ except ImportError:
 
 try:
     import axolotl
-    results['axolotl'] = axolotl.__version__
+    results['axolotl'] = "Installed"
 
 except ImportError:
     results['axolotl'] = 'Not installed'

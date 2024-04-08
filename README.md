@@ -7,6 +7,7 @@ The internet is full of tutorials that typically fail at building a complete vie
 - Creating a PromptFlow eval, and evaluate the model against public benchmarks
 
 When added to a pipeline, it will be possible for customers to use the above to experiment with different configurations / models / datasets, to determine which of the many models is the best performing on their datasets.
+These notebooks are built to be run in sequential order. In each notebook, you will gradually add more features until ultimately you will have an OSS finetuning capability in your AML workspace. 
 
 ## How to run these notebooks and scripts
 
