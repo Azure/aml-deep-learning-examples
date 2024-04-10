@@ -1,5 +1,0 @@
-FROM winglian/axolotl-cloud:main-latest
-
-RUN pip3 install azureml-mlflow mlflow
-
-ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH

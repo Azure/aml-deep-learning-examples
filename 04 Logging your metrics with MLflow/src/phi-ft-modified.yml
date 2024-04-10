@@ -1,0 +1,64 @@
+adam_beta2: 0.95
+adam_epsilon: 1.0e-05
+adapter: null
+base_model: microsoft/phi-1_5
+bf16: auto
+dataset_prepared_path: null
+datasets:
+- path: garage-bAInd/Open-Platypus
+  type: alpaca
+debug: null
+deepspeed: null
+early_stopping_patience: null
+evals_per_epoch: 4
+flash_attention: true
+fp16: null
+fsdp: null
+fsdp_config: null
+gradient_accumulation_steps: 1
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: true
+group_by_length: false
+hf_mlflow_log_artifacts: false
+learning_rate: 3.0e-06
+load_in_4bit: false
+load_in_8bit: false
+local_rank: null
+logging_steps: 1
+lora_alpha: null
+lora_dropout: null
+lora_fan_in_fan_out: null
+lora_model_dir: null
+lora_r: null
+lora_target_linear: null
+lr_scheduler: cosine
+max_grad_norm: 1.0
+micro_batch_size: 2
+mlflow_experiment_name: Finetune_phi1
+mlflow_tracking_uri: azureml://australiaeast.api.azureml.ms/mlflow/v1.0/subscriptions/68092087-0161-4fb5-b51d-32f18ac56bf9/resourceGroups/aml-au/providers/Microsoft.MachineLearningServices/workspaces/aml-au
+model_type: AutoModelForCausalLM
+num_epochs: 1
+optimizer: adamw_torch
+output_dir: ./outputs
+pad_to_sequence_len: true
+resize_token_embeddings_to_32x: true
+resume_from_checkpoint: null
+sample_packing: true
+saves_per_epoch: 1
+sequence_len: 2048
+special_tokens:
+  pad_token: <|endoftext|>
+strict: false
+tf32: true
+tokenizer_type: AutoTokenizer
+train_on_inputs: false
+val_set_size: 0.05
+wandb_entity: null
+wandb_log_model: null
+wandb_name: null
+wandb_project: null
+wandb_watch: null
+warmup_steps: 100
+weight_decay: 0.1
+xformers_attention: null

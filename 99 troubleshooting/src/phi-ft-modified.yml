@@ -20,7 +20,7 @@ gradient_checkpointing: true
 gradient_checkpointing_kwargs:
   use_reentrant: true
 group_by_length: false
-hf_mlflow_log_artifacts: false
+hf_mlflow_log_artifacts: true
 learning_rate: 3.0e-06
 load_in_4bit: false
 load_in_8bit: false
@@ -40,7 +40,7 @@ mlflow_tracking_uri: azureml://australiaeast.api.azureml.ms/mlflow/v1.0/subscrip
 model_type: AutoModelForCausalLM
 num_epochs: 1
 optimizer: adamw_torch
-output_dir: ./phi-sft-out
+output_dir: ./outputs
 pad_to_sequence_len: true
 resize_token_embeddings_to_32x: true
 resume_from_checkpoint: null
