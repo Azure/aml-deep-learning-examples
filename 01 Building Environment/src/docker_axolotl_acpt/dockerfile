@@ -7,4 +7,5 @@ RUN pip3 install packaging ninja
 RUN pip3 install -e '.[flash-attn,deepspeed]'
 COPY integration_utils.py /opt/conda/envs/ptca/lib/python3.10/site-packages/transformers/integrations/integration_utils.py
 
-RUN pip3 install azureml-mlflow mlflow
+RUN pip3 install azureml-mlflow mlflow azure-ai-ml azure-identity azureml-sdk
+RUN apt-get update && apt-get install -y runit

@@ -1,0 +1,19 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+name: merge_lora
+display_name: Merge LoRA weights into the model
+version: 1
+environment: azureml:axolotl_acpt:10
+code: ./merge_lora
+inputs:
+  config:
+    type: uri_file
+  model_weights: 
+    type: uri_folder
+outputs:
+  merged_model_weights:
+    type: uri_folder
+
+
+command: >-
+  python merge_lora.py --model_weights ${{inputs.model_weights}} --config_yml ${{inputs.config}} 

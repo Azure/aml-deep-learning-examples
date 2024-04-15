@@ -1,0 +1,58 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+
+display_name: Finetune and Register a model
+description: Finetunes a model and registers it to the MLFlow registry
+
+settings:
+  default_compute : azureml:a100cluster
+  default_datestore: azureml:workspaceblobstore
+
+inputs:
+  yml_folder:
+    type: uri_folder
+    mode: ro_mount
+    path: ./data
+
+outputs:
+  final_pipeline_output:
+    type: uri_file
+    mode: rw_mount
+
+jobs:
+  getmlflow:
+    type: command
+    component: ./getmlflow.yml
+    inputs:
+      yml_folder: ${{parent.inputs.yml_folder}}
+    outputs:
+      updated_yml:
+  finetune:
+    type: command
+    component: ./finetune.yml
+    inputs:
+      yml_file: ${{parent.jobs.getmlflow.outputs.updated_yml}}
+    outputs:
+      model_weights:
+        type: uri_folder
+  merge_lora:
+    type: command
+    component: ./merge_lora.yml
+    inputs:
+      config: ${{parent.jobs.getmlflow.outputs.updated_yml}}
+      model_weights: ${{parent.jobs.finetune.outputs.model_weights}}
+    outputs:
+      merged_model_weights:
+        type: uri_folder
+  register:
+    type: command
+    component: ./register.yml
+    inputs:
+      model_weights: ${{parent.jobs.finetune.outputs.model_weights}}
+      config_yml: ${{parent.jobs.getmlflow.outputs.updated_yml}}
+    outputs:
+      run_id: ${{parent.outputs.final_pipeline_output}}
+
+
+
+

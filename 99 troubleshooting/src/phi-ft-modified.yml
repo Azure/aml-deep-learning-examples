@@ -5,12 +5,12 @@ base_model: microsoft/phi-1_5
 bf16: auto
 dataset_prepared_path: null
 datasets:
-- path: garage-bAInd/Open-Platypus
+- path: mhenrichsen/alpaca_2k_test
   type: alpaca
 debug: null
 deepspeed: null
 early_stopping_patience: null
-evals_per_epoch: 4
+evals_per_epoch: 1
 flash_attention: true
 fp16: null
 fsdp: null

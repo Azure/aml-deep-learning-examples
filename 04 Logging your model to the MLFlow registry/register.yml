@@ -1,0 +1,19 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+name: register
+display_name: Register a finetuned model in the MLFlow registry
+version: 1
+environment: azureml:axolotl_acpt:10
+code: ./register
+inputs:
+  model_weights: 
+    type: uri_folder
+  config_yml:
+    type: uri_file
+outputs:
+  run_id:
+    type: uri_file
+
+
+command: >-
+  python register_model.py --model_weights ${{inputs.model_weights}} --config_yml ${{inputs.config_yml}} --run_id ${{outputs.run_id}}

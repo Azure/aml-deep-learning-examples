@@ -1,0 +1,15 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+name: finetune
+display_name: Finetune
+version: 2
+environment: azureml:axolotl_acpt:10
+inputs:
+  yml_file: 
+    type: uri_file
+outputs:
+  model_weights:
+    type: uri_folder
+
+command: >-
+  accelerate launch -m axolotl.cli.train ${{inputs.yml_file}} --output_dir ${{outputs.model_weights}}

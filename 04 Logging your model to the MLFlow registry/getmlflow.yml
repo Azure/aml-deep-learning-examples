@@ -1,0 +1,19 @@
+# <component>
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: getmlflow
+display_name: Populates MLFlow field in the YML file
+version: 3
+type: command
+inputs:
+  yml_folder: 
+    type: uri_folder
+outputs:
+  updated_yml:
+    type: uri_file
+code: ./getmlflow
+environment: azureml:axolotl_acpt:13
+command: >-
+  python getmlflow.py 
+  --yml_folder ${{inputs.yml_folder}}
+  --updated_yml ${{outputs.updated_yml}}
+

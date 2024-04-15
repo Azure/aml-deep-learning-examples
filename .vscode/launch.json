@@ -4,10 +4,23 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
-
+        {
+            "name": "Infer current run",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "99 troubleshooting/02 entering inference.py",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
         {
             "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "99 Troubleshoot",
             "type": "debugpy",
             "request": "launch",
             "program": "99 troubleshooting/01 troubleshooting step by step.py",

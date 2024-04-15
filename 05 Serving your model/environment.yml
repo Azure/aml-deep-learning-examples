@@ -1,0 +1,4 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: axolotl_acpt
+image: azureml:axolotl_acpt:12
+description: An environment for serving Axolotl models
