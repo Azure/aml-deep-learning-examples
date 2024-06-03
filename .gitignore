@@ -399,3 +399,6 @@ FodyWeavers.xsd
 *.amlignore
 
 outputs/
+99 troubleshooting/*
+*.amltmp
+.ipynb_aml_checkpoints/
